@@ -1,0 +1,30 @@
+<%- include('../partials/header.ejs')%>
+<section class="listOfGroceriesSectionClass">
+    <img src="<%= machinery.imageUrl%>" alt="image" width="200" height="200">
+    <div class = "machinerycontent">
+        <h4><%= machinery.title%></h4>
+        <h2>
+            Discription:
+        </h2>
+        <div id = 'story'><%= machinery.content%></div>
+        <% if(user == machinery.author._id) { %>
+        <form>
+            <button type="submit" formmethod="get" formaction="/<%=machinery._id%>/edit">Edit</button>
+            <button type="submit" formmethod="post" formaction="/<%=machinery._id%>?_method=DELETE">Delete</button>
+        </form>
+        <% } else {%>
+            <form>
+              <%  if(machinery.status==='Available'){%>
+              <button type="submit" formmethod="GET" formaction="/trade/offer/<%=machinery._id%>">Trade</button>
+              <%} 
+              if(canWatch){%>
+              <button type="submit" formmethod="POST"
+                formaction="/trade/watch/<%=machinery._id%>?_method=PUT">Watch</button>
+              <%}else{%>
+                <button type="submit" formmethod="POST"
+                  formaction="/trade/unwatch/<%=machinery._id%>?_method=PUT">Unwatch</button>
+                <%}%>
+            </form>
+            <% } %>
+    </div>
+<%- include('../partials/footer.ejs')%> 

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Online Agriculture Machinery Trading</title>
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+</head>
+
+<body class="bodyclass">
+
+    <header class="hclass">
+       
+        <h2 class="h2class">
+            <a href="/"><img src="/images/image6.jpg" width="150" height="80"></a>
+        </h2>
+        <b class="bclass">Look no further! We got everything for you</b>
+    
+    <div class="navclass">
+        <a href="/newMachinery" class="ordermachinery">Machinery List</a>
+        <% if(!user){ %>
+        <a href="/users/login" class="login">Login</a>
+        <a href="/users/new" class="signUp">Sign Up</a>
+        <% } else { %>
+            <a href='/users/profile' class="login" >Profile</a>
+            <a href='/users/logout' class="signUp">Logout</a>
+        <% } %>
+    </div>
+    <div>
+        <p class="pclass">_____________________________________________________________________________________________________________________________________________________________________________________________________________</p>
+    </div>
+    <div>
+        <a href="/machineries" class="orderItems">Order Machinery</a>
+    </div>
+    <% if(errorMessages.length > 0) {%>
+        <% errorMessages.forEach(message=>{%>
+            <div class='error'>
+                <%=message%>
+            </div>
+        <%});%>
+    <%}%>
+    
+    <% if(successMessages.length > 0) {%>
+        <% successMessages.forEach(message=>{%>
+            <div class='success'>
+                <%=message%>
+            </div>
+        <%});%>
+    <%}%>
+</header> 

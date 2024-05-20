@@ -1,0 +1,44 @@
+<%- include('../partials/header.ejs')%>
+    <div class="content">
+        <div class="center-container mb-100">
+            <div class="event-heading">
+                <h3 class="dis-in-bl">
+                    <%=user.firstName%>'s Trades
+                </h3>
+            </div>
+            <% if(machineryDetails.length){ %>
+
+                <form action="/trade/offer/<%=id%>" method="POST">
+                    <table id="#table">
+                        <tr>
+                            <th>&nbsp;</th>
+                            <th>instrument Model</th>
+                            <th>Category</th>
+                            <th>Status</th>
+                        </tr>
+                        <% machineryDetails.forEach(machinery=> { %>
+                            <tr>
+                                <td>
+                                    <input type="radio" name="storyItem" value="<%=machinery._id%>">
+                                </td>
+                                <td><a id="profilelinks" href='/trade/<%=machinery._id%>'>
+                                    <%= machinery.title %>
+                                </a>
+                                </td>
+                                <td>
+                                    <%= machinery.category %>
+                                </td>
+                                <td>
+                                    <%= machinery.status %>
+                                </td>
+                            </tr>
+                            <% }); %>
+                    </table>
+                    <button class="button update-btn" type="submit">Trade</button>
+                </form>
+                    <% } else { %>
+                        <p style="margin: 20px auto;width: 95%;">There are no Trade machineries available to Trade</p>
+                        <% } %>
+        </div>
+    </div>
+    <%- include('../partials/footer.ejs')%>

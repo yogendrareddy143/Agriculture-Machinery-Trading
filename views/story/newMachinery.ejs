@@ -1,0 +1,14 @@
+<%- include('../partials/header.ejs')%> 
+<form class="groceryFormClass" action="/" method="POST">
+    <label for="groceryType">Machinery Type: </label><br>
+    <input type="text" id="groceryType" name="category" placeholder="rice field,paddy field Machineries etc." required><br>
+    <label for="Edition">Item: </label><br>
+    <input type="text" id="Item" name="title" placeholder="Machinery equipment" required><br>
+    <label for="quantity">Image URL: </label><br>
+    <input type="text" id="quantity" name="imageUrl" placeholder="Image URL" required><br>
+    <label for="Specifications">contents: </label><br>
+    <textarea id="Packing details" name="content" rows="5" cols="33" placeholder="content" required minlength="10"></textarea><br><br>
+    <button for="Order" class="groceryFormButton">Order Online</button>
+</form>
+
+<%- include('../partials/footer.ejs')%> 

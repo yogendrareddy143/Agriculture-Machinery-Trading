@@ -1,0 +1,31 @@
+<%- include('../partials/header.ejs')%> 
+<section class="orderSectionClass">
+    <h2 class="orderSectionHeaderClass" >Charlotte Online Agriculture Machinery Trading Store :</h2><br>
+    
+    <div class="w3-container">
+       <% if(machineryCategories.length){%>
+           <% machineryCategories.forEach(categories=> {%>
+                <h4>
+                    <%= categories%>
+                </h4>
+                <% if(machineryDetails.length){%>
+                    <% console.log("machineryDetails------>",machineryDetails)%>
+                    <% machineryDetails.forEach(machineryDetails=>{
+                        if(machineryDetails.category === categories) {%>
+                        <a href="/machinery/<%=machineryDetails._id %>" id="tradesList">
+                            <p>
+                                <%= machineryDetails.title %>
+                            </p>
+                        </a>
+                        <% } }); } else { %>
+                        <p>There are no machineries to display.</p>
+                        <%}%>
+        
+        <%});%> 
+       <%} else {%>
+        <p> There are no machinery categories to display.</p>
+    <%}%>
+    </div>
+    
+</section>
+<%- include('../partials/footer.ejs')%> 
